@@ -86,19 +86,30 @@ achievements  → Gamification milestones
 
 ## 📸 Screenshots
 
-> **Note**: Screenshots are being added. See [SCREENSHOT_GUIDE.md](docs/SCREENSHOT_GUIDE.md) for details on the UI features.
+### Welcome State
+*Clean empty state with suggestion pills*
 
-**Coming soon**:
-- Chat Interface - Clean, Reflection.app-inspired design with suggestion pills
-- Patterns Dashboard - Visualize recurring psychological patterns over time
-- Analytics View - Track engagement metrics and insights
-- Achievement System - Celebrate milestones and maintain streaks
+![Welcome State](docs/screenshots/welcome-state.png)
 
-<!-- Placeholder for screenshots -->
-<!-- ![Chat Interface](docs/screenshots/chat-interface.png) -->
-<!-- ![Patterns Dashboard](docs/screenshots/patterns-dashboard.png) -->
-<!-- ![Analytics](docs/screenshots/analytics-view.png) -->
-<!-- ![Achievements](docs/screenshots/achievements.png) -->
+### Chat Interface
+*Reflection.app-inspired design with conversational flow*
+
+![Chat Interface](docs/screenshots/chat-interface.png)
+
+### Patterns Dashboard
+*Visualize recurring psychological patterns*
+
+![Patterns Dashboard](docs/screenshots/patterns-dashboard.png)
+
+### Analytics View
+*Track engagement metrics and insights*
+
+![Analytics View](docs/screenshots/analytics-view.png)
+
+### Achievement System
+*Celebrate milestones and maintain streaks*
+
+![Achievements](docs/screenshots/achievements.png)
 
 ---
 
