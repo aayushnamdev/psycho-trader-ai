@@ -50,7 +50,7 @@ export const memoryApi = {
    * Get all memories for a trader
    */
   getMemories: async (traderId: string): Promise<Memory[]> => {
-    const response = await api.get<Memory[]>(`/user/${traderId}/memories`);
+    const response = await api.get<Memory[]>(`/trader/${traderId}/memories`);
     return response.data;
   },
 
@@ -58,7 +58,7 @@ export const memoryApi = {
    * Get memories by category
    */
   getMemoriesByCategory: async (traderId: string, category: string): Promise<Memory[]> => {
-    const response = await api.get<Memory[]>(`/user/${traderId}/memories/category/${category}`);
+    const response = await api.get<Memory[]>(`/trader/${traderId}/memories/category/${category}`);
     return response.data;
   },
 
@@ -66,7 +66,7 @@ export const memoryApi = {
    * Get pattern categories
    */
   getPatternCategories: async (traderId: string): Promise<string[]> => {
-    const response = await api.get<string[]>(`/user/${traderId}/patterns`);
+    const response = await api.get<string[]>(`/trader/${traderId}/patterns`);
     return response.data;
   },
 };
@@ -76,7 +76,7 @@ export const dashboardApi = {
    * Get dashboard statistics
    */
   getStats: async (traderId: string): Promise<DashboardStats> => {
-    const response = await api.get<DashboardStats>(`/user/${traderId}/stats`);
+    const response = await api.get<DashboardStats>(`/trader/${traderId}/stats`);
     return response.data;
   },
 
@@ -84,7 +84,7 @@ export const dashboardApi = {
    * Get recent sessions
    */
   getSessions: async (traderId: string, limit: number = 10): Promise<Session[]> => {
-    const response = await api.get<Session[]>(`/user/${traderId}/sessions`, {
+    const response = await api.get<Session[]>(`/trader/${traderId}/sessions`, {
       params: { limit },
     });
     return response.data;
@@ -96,7 +96,7 @@ export const relationshipApi = {
    * Get relationship statistics for a trader
    */
   getStats: async (traderId: string): Promise<RelationshipStats> => {
-    const response = await api.get<RelationshipStats>(`/user/${traderId}/relationship`);
+    const response = await api.get<RelationshipStats>(`/trader/${traderId}/relationship`);
     return response.data;
   },
 };
@@ -106,7 +106,7 @@ export const achievementApi = {
    * Get all achievements for a trader
    */
   getAchievements: async (traderId: string): Promise<Achievement[]> => {
-    const response = await api.get<Achievement[]>(`/user/${traderId}/achievements`);
+    const response = await api.get<Achievement[]>(`/trader/${traderId}/achievements`);
     return response.data;
   },
 
@@ -114,7 +114,7 @@ export const achievementApi = {
    * Get uncelebrated achievements
    */
   getUncelebrated: async (traderId: string): Promise<Achievement[]> => {
-    const response = await api.get<Achievement[]>(`/user/${traderId}/achievements/uncelebrated`);
+    const response = await api.get<Achievement[]>(`/trader/${traderId}/achievements/uncelebrated`);
     return response.data;
   },
 
@@ -122,7 +122,7 @@ export const achievementApi = {
    * Check and unlock new achievements
    */
   checkAchievements: async (traderId: string): Promise<Achievement[]> => {
-    const response = await api.post<Achievement[]>(`/user/${traderId}/achievements/check`);
+    const response = await api.post<Achievement[]>(`/trader/${traderId}/achievements/check`);
     return response.data;
   },
 
@@ -130,14 +130,14 @@ export const achievementApi = {
    * Mark an achievement as celebrated
    */
   celebrate: async (traderId: string, achievementId: number): Promise<void> => {
-    await api.post(`/user/${traderId}/achievements/${achievementId}/celebrate`);
+    await api.post(`/trader/${traderId}/achievements/${achievementId}/celebrate`);
   },
 
   /**
    * Get streak status
    */
   getStreakStatus: async (traderId: string): Promise<StreakStatus> => {
-    const response = await api.get<StreakStatus>(`/user/${traderId}/streak-status`);
+    const response = await api.get<StreakStatus>(`/trader/${traderId}/streak-status`);
     return response.data;
   },
 };
