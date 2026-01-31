@@ -1,8 +1,16 @@
 # 🧠 Psycho Trader AI
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)](https://www.typescriptlang.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React-18+-blue)](https://react.dev/)
+
 **A psychoanalytically-oriented reflection system for traders**
 
 Built to help traders understand the psychological patterns behind their trading behavior. Not therapy, not financial advice—a space for genuine self-reflection powered by AI.
+
+🔗 **[View Demo](#)** | 📖 **[Documentation](#)** | 💬 **[Discussions](https://github.com/aayushnamdev/psycho-trader-ai/discussions)**
 
 ---
 
@@ -78,25 +86,19 @@ achievements  → Gamification milestones
 
 ## 📸 Screenshots
 
-### Chat Interface
-*Clean, Reflection.app-inspired design with suggestion pills*
+> **Note**: Screenshots are being added. See [SCREENSHOT_GUIDE.md](docs/SCREENSHOT_GUIDE.md) for details on the UI features.
 
-![Chat Interface](docs/screenshots/chat-interface.png)
+**Coming soon**:
+- Chat Interface - Clean, Reflection.app-inspired design with suggestion pills
+- Patterns Dashboard - Visualize recurring psychological patterns over time
+- Analytics View - Track engagement metrics and insights
+- Achievement System - Celebrate milestones and maintain streaks
 
-### Patterns Dashboard
-*Visualize recurring psychological patterns over time*
-
-![Patterns Dashboard](docs/screenshots/patterns-dashboard.png)
-
-### Analytics View
-*Track engagement metrics and insights*
-
-![Analytics](docs/screenshots/analytics-view.png)
-
-### Achievement System
-*Celebrate milestones and maintain streaks*
-
-![Achievements](docs/screenshots/achievements.png)
+<!-- Placeholder for screenshots -->
+<!-- ![Chat Interface](docs/screenshots/chat-interface.png) -->
+<!-- ![Patterns Dashboard](docs/screenshots/patterns-dashboard.png) -->
+<!-- ![Analytics](docs/screenshots/analytics-view.png) -->
+<!-- ![Achievements](docs/screenshots/achievements.png) -->
 
 ---
 
@@ -111,7 +113,7 @@ achievements  → Gamification milestones
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/YOUR_USERNAME/psycho-trader-ai.git
+git clone https://github.com/aayushnamdev/psycho-trader-ai.git
 cd psycho-trader-ai
 ```
 
@@ -332,7 +334,7 @@ This is a personal portfolio project, but feedback and ideas are welcome! If you
 - AI-powered self-reflection tools
 - Thoughtful product design
 
-Let's connect: [LinkedIn](#)
+Let's connect on [LinkedIn](https://linkedin.com/in/aayushnamdev) or [GitHub](https://github.com/aayushnamdev)
 
 ---
 
@@ -354,9 +356,9 @@ MIT License - See [LICENSE](LICENSE) for details
 
 Building at the intersection of AI and human behavior. If that resonates, I'd love to connect.
 
-**LinkedIn**: [Your LinkedIn]
-**Email**: [Your Email]
-**Portfolio**: [Your Portfolio Site]
+**GitHub**: [@aayushnamdev](https://github.com/aayushnamdev)
+**LinkedIn**: [Aayush Namdev](https://linkedin.com/in/aayushnamdev)
+**Portfolio**: Coming soon
 
 ---
 
