@@ -208,6 +208,7 @@ async def get_session_history(
                 created_at=session.created_at.isoformat()
             )
             for session in sessions
+            if session is not None
         ]
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to fetch sessions: {str(e)}")
@@ -239,13 +240,17 @@ async def get_dashboard_stats(user_id: str, db: Session = Depends(get_db)):
             limit=1
         )
 
-        categories = list(set(mem.category for mem in memories if mem.category))
+        categories = list(set(mem.category for mem in memories if mem and mem.category))
+
+        # Filter out None sessions
+        valid_sessions = [s for s in sessions if s is not None]
+        valid_memories = [m for m in memories if m is not None]
 
         return DashboardStatsResponse(
-            total_sessions=len(sessions),
-            total_memories=len(memories),
+            total_sessions=len(valid_sessions),
+            total_memories=len(valid_memories),
             active_patterns=len(categories),
-            last_session=sessions[0].created_at.isoformat() if sessions else None
+            last_session=valid_sessions[0].created_at.isoformat() if valid_sessions else None
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to fetch stats: {str(e)}")
