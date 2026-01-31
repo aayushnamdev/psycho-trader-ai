@@ -83,7 +83,7 @@ async def get_trader_memories(user_id: str, db: Session = Depends(get_db)):
     """
     try:
         memory_service = MemoryService(db)
-        user = memory_service.repository.get_or_create_trader(user_id)
+        user = memory_service.repository.get_or_create_user(user_id)
         
         memories = memory_service.repository.get_recent_memories(
             user_id=user.id,
@@ -104,6 +104,7 @@ async def get_trader_memories(user_id: str, db: Session = Depends(get_db)):
                 is_breakthrough_moment=getattr(mem, 'is_breakthrough_moment', False) or False
             )
             for mem in memories
+            if mem is not None
         ]
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to fetch memories: {str(e)}")
@@ -140,6 +141,7 @@ async def get_memories_by_category(user_id: str, category: str, db: Session = De
                 is_breakthrough_moment=getattr(mem, 'is_breakthrough_moment', False) or False
             )
             for mem in memories
+            if mem is not None
         ]
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to fetch memories: {str(e)}")
@@ -159,14 +161,14 @@ async def get_pattern_categories(user_id: str, db: Session = Depends(get_db)):
     """
     try:
         memory_service = MemoryService(db)
-        user = memory_service.repository.get_or_create_trader(user_id)
+        user = memory_service.repository.get_or_create_user(user_id)
         
         memories = memory_service.repository.get_recent_memories(
             user_id=user.id,
             limit=1000
         )
         
-        categories = list(set(mem.category for mem in memories if mem.category))
+        categories = list(set(mem.category for mem in memories if mem and mem.category))
         return sorted(categories)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to fetch patterns: {str(e)}")
@@ -191,7 +193,7 @@ async def get_session_history(
     """
     try:
         memory_service = MemoryService(db)
-        user = memory_service.repository.get_or_create_trader(user_id)
+        user = memory_service.repository.get_or_create_user(user_id)
         
         sessions = memory_service.repository.get_recent_sessions(
             user_id=user.id,
@@ -225,7 +227,7 @@ async def get_dashboard_stats(user_id: str, db: Session = Depends(get_db)):
     """
     try:
         memory_service = MemoryService(db)
-        user = memory_service.repository.get_or_create_trader(user_id)
+        user = memory_service.repository.get_or_create_user(user_id)
 
         memories = memory_service.repository.get_recent_memories(
             user_id=user.id,
@@ -263,9 +265,9 @@ async def get_relationship_stats(user_id: str, db: Session = Depends(get_db)):
     """
     try:
         memory_service = MemoryService(db)
-        user = memory_service.repository.get_or_create_trader(user_id)
+        user = memory_service.repository.get_or_create_user(user_id)
 
-        stats = memory_service.repository.get_trader_relationship_stats(user.id)
+        stats = memory_service.repository.get_user_relationship_stats(user.id)
 
         return RelationshipStatsResponse(
             days_together=stats["days_together"],
@@ -293,7 +295,7 @@ async def get_identity_memories(user_id: str, db: Session = Depends(get_db)):
     """
     try:
         memory_service = MemoryService(db)
-        user = memory_service.repository.get_or_create_trader(user_id)
+        user = memory_service.repository.get_or_create_user(user_id)
 
         memories = memory_service.repository.get_recent_memories(
             user_id=user.id,
@@ -303,6 +305,7 @@ async def get_identity_memories(user_id: str, db: Session = Depends(get_db)):
         # Filter for identity statements
         identity_memories = [
             mem for mem in memories
+            if mem is not None
             if getattr(mem, 'is_identity_statement', False)
         ]
 
@@ -339,7 +342,7 @@ async def get_breakthrough_memories(user_id: str, db: Session = Depends(get_db))
     """
     try:
         memory_service = MemoryService(db)
-        user = memory_service.repository.get_or_create_trader(user_id)
+        user = memory_service.repository.get_or_create_user(user_id)
 
         memories = memory_service.repository.get_recent_memories(
             user_id=user.id,
@@ -349,6 +352,7 @@ async def get_breakthrough_memories(user_id: str, db: Session = Depends(get_db))
         # Filter for breakthrough moments
         breakthrough_memories = [
             mem for mem in memories
+            if mem is not None
             if getattr(mem, 'is_breakthrough_moment', False) or mem.category == 'breakthrough_moment'
         ]
 
@@ -387,7 +391,7 @@ async def get_people_mentioned(user_id: str, db: Session = Depends(get_db)):
 
     try:
         memory_service = MemoryService(db)
-        user = memory_service.repository.get_or_create_trader(user_id)
+        user = memory_service.repository.get_or_create_user(user_id)
 
         memories = memory_service.repository.get_recent_memories(
             user_id=user.id,
@@ -433,9 +437,9 @@ async def get_achievements(user_id: str, db: Session = Depends(get_db)):
     """
     try:
         memory_service = MemoryService(db)
-        user = memory_service.repository.get_or_create_trader(user_id)
+        user = memory_service.repository.get_or_create_user(user_id)
 
-        achievements = memory_service.repository.get_trader_achievements(user.id)
+        achievements = memory_service.repository.get_achievements(user.id)
 
         return [
             AchievementResponse(
@@ -464,7 +468,7 @@ async def get_uncelebrated_achievements(user_id: str, db: Session = Depends(get_
     """
     try:
         memory_service = MemoryService(db)
-        user = memory_service.repository.get_or_create_trader(user_id)
+        user = memory_service.repository.get_or_create_user(user_id)
 
         achievements = memory_service.repository.get_uncelebrated_achievements(user.id)
 
@@ -495,7 +499,7 @@ async def check_achievements(user_id: str, db: Session = Depends(get_db)):
     """
     try:
         memory_service = MemoryService(db)
-        user = memory_service.repository.get_or_create_trader(user_id)
+        user = memory_service.repository.get_or_create_user(user_id)
 
         newly_unlocked = memory_service.repository.check_and_unlock_achievements(user.id)
 
@@ -527,7 +531,7 @@ async def celebrate_achievement(user_id: str, achievement_id: int, db: Session =
     """
     try:
         memory_service = MemoryService(db)
-        memory_service.repository.get_or_create_trader(user_id)
+        memory_service.repository.get_or_create_user(user_id)
 
         achievement = memory_service.repository.mark_achievement_celebrated(achievement_id)
         if not achievement:
@@ -554,7 +558,7 @@ async def get_streak_status(user_id: str, db: Session = Depends(get_db)):
     """
     try:
         memory_service = MemoryService(db)
-        user = memory_service.repository.get_or_create_trader(user_id)
+        user = memory_service.repository.get_or_create_user(user_id)
 
         status = memory_service.repository.get_streak_status(user.id)
 
