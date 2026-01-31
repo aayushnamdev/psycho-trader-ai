@@ -86,30 +86,30 @@ achievements  → Gamification milestones
 
 ## 📸 Screenshots
 
+### Start Page
+*Clean, minimal authentication screen*
+
+![Start Page](docs/screenshots/start-page.png)
+
 ### Welcome State
-*Clean empty state with suggestion pills*
+*Empty state with suggestion pills for getting started*
 
 ![Welcome State](docs/screenshots/welcome-state.png)
 
 ### Chat Interface
-*Reflection.app-inspired design with conversational flow*
+*Reflection.app-inspired design with real conversation flow*
 
 ![Chat Interface](docs/screenshots/chat-interface.png)
 
 ### Patterns Dashboard
-*Visualize recurring psychological patterns*
+*Visualize recurring psychological patterns (6 categories)*
 
-![Patterns Dashboard](docs/screenshots/patterns-dashboard.png)
+![Patterns](docs/screenshots/patterns.png)
 
-### Analytics View
-*Track engagement metrics and insights*
+### Insights & Analytics
+*Deep dive into memories, breakthroughs, and relationship stats*
 
-![Analytics View](docs/screenshots/analytics-view.png)
-
-### Achievement System
-*Celebrate milestones and maintain streaks*
-
-![Achievements](docs/screenshots/achievements.png)
+![Insights](docs/screenshots/insights.png)
 
 ---
 
